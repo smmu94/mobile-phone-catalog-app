@@ -3,13 +3,13 @@
 ## Demo
 
 ### Mobile
-![Mobile Demo](https://imgur.com/a/G5my1Ig)
+![Mobile Demo](https://github.com/smmu94/zara-web-challenge/public/assets/mobile.gif)
 
 ### Tablet
-![Tablet Demo](https://imgur.com/a/RkmhGTZ)
+![Tablet Demo](https://github.com/smmu94/zara-web-challenge/public/assets/tablet.gif)
 
 ### Desktop
-![Desktop Demo](https://imgur.com/a/sVTz6xN)
+![Desktop Demo](https://github.com/smmu94/zara-web-challenge/public/assets/desk.gif)
 
 ## Description
 

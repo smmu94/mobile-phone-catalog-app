@@ -10,6 +10,7 @@ import SimilarItems from "./components/similarItems";
 import Image from "next/image";
 import { messages } from "./constants";
 import Messages from "@components/messages";
+import Spinner from "@components/spinner";
 
 export default function DetailsView() {
   const { id } = useGetDetailsId();
@@ -37,7 +38,7 @@ export default function DetailsView() {
           BACK
         </a>
       </Link>
-      {isLoading && <Messages message={messages.loading} />}
+      {isLoading && <Spinner />}
       {isError && <Messages message={messages.error} isError />}
       <section className={styles.content} aria-label="details-content">
         <ProductInfo />

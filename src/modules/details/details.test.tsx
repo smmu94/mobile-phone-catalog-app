@@ -75,7 +75,7 @@ describe("DetailsView", () => {
       isLoading: true,
     }));
     render(<Component />);
-    expect(screen.getByText(messages.loading)).toBeInTheDocument();
+    expect(screen.getByTestId("spinner")).toBeInTheDocument();
   });
   it("DetailsView: should render the error state", () => {
     (useQuery as jest.Mock).mockImplementationOnce(() => ({

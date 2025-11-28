@@ -1,0 +1,35 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-m
+    min-width: spacing.$spacing-l * 12
+    width: 100%
+    align-items: center
+    gap: spacing.$spacing-m
+    padding: spacing.$spacing-xl
+    border: map-get(colors.$colors, "dark") solid 1px
+    border-radius: spacing.$spacing-s
+    background-color: map-get(colors.$colors, "light")
+    color: map-get(colors.$colors, "dark")
+
+    .icon
+        border-radius: spacing.$spacing-s
+        padding: spacing.$spacing-s
+        border-color: map-get(colors.$colors, "dark")
+        border: map-get(colors.$colors, "dark") solid 1px
+        font-size: typography.$font-size-s * 2
+        color: map-get(colors.$colors, "light")
+        background-color: map-get(colors.$colors, "default")
+
+    
+    .title
+      font-size: typography.$font-size-l
+      font-weight: typography.$font-weight-bold
+
+    .description
+      font-size: typography.$font-size-m
+      font-weight: typography.$font-weight-regular

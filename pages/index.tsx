@@ -1,7 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import ListView from "@modules/list";
+import HomeView from "../src/modules/home";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Home page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ListView />
+      <HomeView />
     </div>
   );
 };

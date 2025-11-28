@@ -8,6 +8,15 @@ const routes = {
   cart: {
     main: "/cart",
   },
+  checkout: {
+    main: "/checkout",
+  },
+  catalog: {
+    main: "/catalog",
+  },
+  support: {
+    main: "/support",
+  }
 };
 
 export default routes;

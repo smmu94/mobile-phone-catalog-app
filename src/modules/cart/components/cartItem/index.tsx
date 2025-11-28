@@ -39,7 +39,7 @@ export default function CartItem({ color, id, storage, name }: CartItemProps) {
           className={styles.delete}
           aria-label="delete-button"
         >
-          Eliminar
+          Delete
         </button>
       </section>
     </article>

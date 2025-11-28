@@ -1,6 +1,6 @@
 {
-  "name": "zara-web-challenge",
-  "version": "0.1.0",
+  "name": "mobile-store-app",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,7 +19,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.54.2",
+    "react-icons": "^4.10.1",
     "sass": "^1.83.4",
+    "stripe": "^20.0.0",
     "underscore": "^1.13.7"
   },
   "devDependencies": {

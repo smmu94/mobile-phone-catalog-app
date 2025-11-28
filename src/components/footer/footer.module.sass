@@ -1,0 +1,68 @@
+@use "@styles/colors" as colors
+@use "@styles/_spacing" as spacing
+
+.wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: spacing.$spacing-l * 2 spacing.$spacing-l * 4
+    background-color: map-get(colors.$colors, "dark")
+    color: map-get(colors.$colors, "light")
+    
+    .topContent
+        display: flex
+        flex-direction: column
+        gap: spacing.$spacing-xl * 2
+        width: 100%
+        
+        > div
+            flex: 1
+            display: flex
+            flex-direction: column
+            gap: spacing.$spacing-s
+            align-items: flex-start
+
+        .leftContent
+            p
+                font-size: 0.85rem
+                line-height: 1.4
+
+            .socials
+                display: flex
+                gap: spacing.$spacing-m
+                
+                .icon
+                    cursor: pointer
+                    padding: spacing.$spacing-xs
+                    border-radius: 50%
+                    border: 1px solid map-get(colors.$colors, "default")
+                    transition: 0.2s
+                    &:hover
+                        background-color: map-get(colors.$colors, "default")
+                        color: map-get(colors.$colors, "gray")
+
+        .mediumContent, .rightContent
+            h3
+                font-size: 0.95rem
+                margin-bottom: spacing.$spacing-s
+            p, a
+                font-size: 0.85rem
+                line-height: 1.4
+                cursor: pointer
+                &:hover
+                    text-decoration: underline
+
+    .bottomContent
+        margin-top: spacing.$spacing-l
+        text-align: center
+        font-size: 0.75rem
+        color: map-get(colors.$colors, "gray")
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .wrapper
+        .topContent
+            flex-direction: row
+            justify-content: space-between
+
+            > div
+                align-items: center

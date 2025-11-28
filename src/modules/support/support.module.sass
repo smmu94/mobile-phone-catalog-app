@@ -1,0 +1,58 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+  display: flex
+  flex-direction: column
+  background-color: map-get(colors.$colors, "dark")
+
+  .hero
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background-color: map-get(colors.$colors, "gray")
+    gap: spacing.$spacing-xl * 2
+    padding: spacing.$spacing-l * 10 spacing.$spacing-xl
+    text-align: center
+
+    .text
+      display: flex
+      flex-direction: column
+      gap: spacing.$spacing-s
+    
+  .channels
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-xl
+    color: map-get(colors.$colors, "light")
+    text-align: center
+    padding: spacing.$spacing-l * 5 spacing.$spacing-xl
+ 
+    .channelCards
+      display: flex
+      flex-direction: column
+      gap: spacing.$spacing-l
+  
+  .faq
+    padding: spacing.$spacing-l * 5 spacing.$spacing-xl
+    background-color: map-get(colors.$colors, "default")
+    color: map-get(colors.$colors, "light")
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-xl
+    text-align: center
+    align-items: center
+    .faqItems
+      width: 100%
+      max-width: spacing.$spacing-xl * 34.75
+      
+@media (min-width: spacing.$spacing-xl * 34.75)
+  .wrapper
+    .channels
+      .channelCards
+        flex-direction: row
+        justify-content: space-between
+
+

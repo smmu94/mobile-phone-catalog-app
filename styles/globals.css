@@ -1,6 +1,7 @@
 html,
 body {
   font-family: Helvetica Neue, Arial, sans-serif;
+  height: 100%;
 }
 
 a {
@@ -14,7 +15,13 @@ a {
   margin: 0;
 }
 
-.container {
-  height: 100vh;
-  padding-top: 84px;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; 
+  padding-top: 84px
 }

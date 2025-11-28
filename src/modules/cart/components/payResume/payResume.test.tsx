@@ -64,6 +64,6 @@ describe("CartView - PayResume", () => {
   it("PayResume: should call goToListView", () => {
     render(<Component product={mockProduct} />);
     screen.getByText("CONTINUE SHOPPING").click();
-    expect(pushMock).toHaveBeenCalledWith(routes.home.main);
+    expect(pushMock).toHaveBeenCalledWith(routes.catalog.main);
   });
 });

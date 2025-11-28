@@ -5,6 +5,7 @@ import Navbar from "src/components/navbar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ProductsListProvider } from "src/contexts/productsListContext";
 import { SelectedProductsProvider } from "@contexts/selectedProductsContext";
+import Footer from "src/components/footer";
 
 const queryClient = new QueryClient();
 
@@ -13,12 +14,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <SelectedProductsProvider>
         <ProductsListProvider>
-          <main role="main" aria-labelledby="main-content">
+          <div className="app-wrapper">
             <Navbar />
-            <div className="container">
+            <main className="main-content" role="main" aria-labelledby="main-content">
               <Component {...pageProps} />
-            </div>
-          </main>
+            </main>
+            <Footer />
+          </div>
         </ProductsListProvider>
       </SelectedProductsProvider>
     </QueryClientProvider>

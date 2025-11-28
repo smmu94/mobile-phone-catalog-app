@@ -1,0 +1,22 @@
+@use "@styles/_spacing" as spacing
+
+.wrapper
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  gap: spacing.$spacing-m
+  padding: spacing.$spacing-m 0
+
+  > * 
+    flex: 1 1 calc(50% - spacing.$spacing-m)
+    max-width: 250px
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+  .wrapper
+    gap: spacing.$spacing-l
+    > * 
+      flex: 1 1 calc(25% - spacing.$spacing-l)
+
+@media (min-width: spacing.$spacing-l * 96)
+  .wrapper
+    gap: spacing.$spacing-l * 2

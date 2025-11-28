@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
-import styles from "./productInfo.module.sass";
-import Storage from "./components/storage";
-import ColorOp from "./components/colorOp";
 import Button from "@components/button";
-import { Controller, useForm } from "react-hook-form";
-import { FormData, initialValues } from "./form";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
-import { useRouter } from "next/router";
-import routes from "@utils/routes";
 import { useGetQueryDetails } from "@modules/details/hooks/useGetQueryDetails";
+import routes from "@utils/routes";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
+import { Controller, useForm } from "react-hook-form";
+import ColorOp from "./components/colorOp";
+import Storage from "./components/storage";
+import { FormData, initialValues } from "./form";
+import styles from "./productInfo.module.sass";
+import { SelectedProduct } from "@contexts/selectedProductsContext/types";
 
 export default function ProductInfo() {
   const router = useRouter();
@@ -29,12 +30,25 @@ export default function ProductInfo() {
   }
 
   const addToCart = () => {
-    const newProduct = {
+    const newProduct: SelectedProduct = {
       ...watch(),
-      id: `${product.id}-${watch("color").name}-${storage}`,
+      id: `${product.id}-${watch("color").name}-${storage.capacity}`,
       name: product.name,
+      quantity: 1,
     };
-    setSelectedProducts((prev) => [...prev, newProduct]);
+
+    setSelectedProducts((prev) => {
+      const exists = prev.find((p) => p.id === newProduct.id);
+      if (exists) {
+        return prev.map((p) =>
+          p.id === newProduct.id
+            ? { ...p, quantity: p.quantity + 1 }
+            : p
+        );
+      }
+      return [...prev, newProduct];
+    });
+
     router.push(routes.cart.main);
   };
 
@@ -122,7 +136,7 @@ export default function ProductInfo() {
           isDisabled={!enabledButton}
           ariaLabel="add-to-cart"
         >
-          AÑADIR
+          ADD
         </Button>
       </section>
     </article>

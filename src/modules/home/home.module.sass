@@ -1,0 +1,153 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+  display: flex
+  flex-direction: column
+  background-color: map-get(colors.$colors, "dark")
+
+  .hero
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background-color: map-get(colors.$colors, "gray")
+    gap: spacing.$spacing-xl * 2
+    height: spacing.$spacing-xl * 30
+    padding: spacing.$spacing-l
+    text-align: center
+
+    .left
+      display: flex
+      flex-direction: column
+      gap: spacing.$spacing-xl 
+      width: 100%
+      align-items: center
+
+      .text
+        display: flex
+        flex-direction: column
+        gap: spacing.$spacing-s
+
+      button
+        align-self: center
+        width: spacing.$spacing-xl * 5
+   
+    .image
+      width: spacing.$spacing-xl * 13
+      height: auto
+      img
+        position: relative
+        width: 100%
+        height: auto
+        animation: bounce 6s infinite
+        
+        @keyframes bounce
+          0%
+            transform: translateX(0)
+          50%
+            transform: translateX(20px)
+          100%
+            transform: translateX(0)
+
+  .additionalInfo
+    display: flex
+    flex-direction: column
+    padding: spacing.$spacing-xl * 4
+    gap: spacing.$spacing-xl * 2
+    h2
+      color: map-get(colors.$colors, "light")
+      text-align: center
+    .infoCards
+      display: flex
+      flex-direction: column
+      gap: spacing.$spacing-xl
+      align-self: center
+      align-items: center
+      justify-content: center
+      max-width: spacing.$spacing-xl * 40
+      width: 100%
+
+  .about
+    padding: spacing.$spacing-xl * 4 spacing.$spacing-xl
+    display: flex
+    flex-direction: column
+    align-items: center
+    background-color: map-get(colors.$colors, "default")
+    gap: spacing.$spacing-xl * 2
+    h2
+      text-align: center
+      color: map-get(colors.$colors, "light")
+      margin-bottom: spacing.$spacing-m
+      letter-spacing: 1px
+    .content
+      max-width: spacing.$spacing-xl * 35
+      width: 100%
+      padding: spacing.$spacing-xl * 2
+      background-color: map-get(colors.$colors, "light")
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05)
+      color: map-get(colors.$colors, "dark")
+      display: flex
+      flex-direction: column
+      gap: spacing.$spacing-m
+      p
+        line-height: typography.$line-height-sm
+        font-size: typography.$font-size-m
+        color: map-get(colors.$colors, "dark")
+        text-align: center
+
+  .featuredProducts
+    padding: spacing.$spacing-xl * 4
+    background-color: map-get(colors.$colors, "gray")
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: spacing.$spacing-xl * 2
+    h2
+      color: map-get(colors.$colors, "dark")
+      text-align: center
+
+  .action
+    padding: spacing.$spacing-xl * 4
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: spacing.$spacing-xl
+    background-color: map-get(colors.$colors, "light")
+    button
+      width: spacing.$spacing-xl * 5
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+  .wrapper
+    .hero
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        text-align: left
+
+        .left
+          width: 50%
+          gap: spacing.$spacing-xl * 2
+
+          .text
+            gap: spacing.$spacing-m
+            color: map-get(colors.$colors, "dark")
+
+          button
+            width: spacing.$spacing-xl * 6
+          
+        .image
+          width: spacing.$spacing-xl * 25
+    .additionalInfo
+      .infoCards
+        flex-direction: row
+        gap: spacing.$spacing-l 
+@media (min-width: spacing.$spacing-l * 96)
+  .wrapper
+    .hero
+      padding: spacing.$spacing-l * 5
+      .left
+        .text
+          h1
+            font-size: typography.$font-size-2xl * 2

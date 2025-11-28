@@ -5,6 +5,7 @@ import { ProductDetailsBody } from "@services/details/types";
 export type SelectedProduct = FormData & {
     id: ProductDetailsBody["id"];
     name: ProductDetailsBody["name"];
+    quantity: number;
 };
 
 export type SelectedProductsContextType = {

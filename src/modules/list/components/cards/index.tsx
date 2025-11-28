@@ -4,6 +4,7 @@ import { ProductsListContext } from "@contexts/productsListContext";
 import { useGetProductList } from "@services/list";
 import Card from "@components/card";
 import Messages from "@components/messages";
+import Spinner from "@components/spinner";
 import { messages } from "./constants";
 
 export default function Cards() {
@@ -24,7 +25,7 @@ export default function Cards() {
   }
 
   if (isLoading) {
-    return <Messages message={messages.loading} />;
+    return <Spinner />;
   }
 
   if (!productsList.length) {

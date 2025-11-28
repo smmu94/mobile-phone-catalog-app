@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./payResume.module.sass";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 import Button from "@components/button";
-import { noop } from "underscore";
 import { useRouter } from "next/router";
 import routes from "@utils/routes";
 
@@ -30,7 +29,20 @@ export default function PayResume() {
   };
 
   const goToListView = () => {
-    router.push(routes.home.main);
+    router.push(routes.catalog.main);
+  };
+
+  const handlePay = async () => {
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: selectedProducts }),
+    });
+    
+    const session = await res.json();
+    router.push(session.url);
   };
 
   const renderTotal = () => (
@@ -46,7 +58,7 @@ export default function PayResume() {
         CONTINUE SHOPPING
       </Button>
       {!!selectedProducts.length && (
-        <Button onClick={noop} style="Primary">
+        <Button onClick={handlePay} style="Primary">
           PAY
         </Button>
       )}
@@ -70,7 +82,7 @@ export default function PayResume() {
           {!!selectedProducts.length && (
             <div className={styles.pay}>
               {renderTotal()}
-              <Button onClick={noop} style="Primary" ariaLabel="pay">
+              <Button onClick={handlePay} style="Primary" ariaLabel="pay">
                 PAY
               </Button>
             </div>

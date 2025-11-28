@@ -11,11 +11,16 @@
     padding: spacing.$spacing-s * 2 spacing.$spacing-m
     position: fixed
     z-index: 100
-    background-color: map-get(colors.$colors, "light")
+    background-color: map-get(colors.$colors, "dark")
     top: 0
 
     .logo
         cursor: pointer
+    
+    .right-links
+        display: flex
+        align-items: center
+        gap: spacing.$spacing-m
 
     .link
         display: flex
@@ -26,6 +31,7 @@
         cursor: pointer
 
         .text
+            color: map-get(colors.$colors, "light")
             font-size: typography.$font-size-l
             line-height: typography.$line-height-sm
             font-weight: typography.$font-weight-light

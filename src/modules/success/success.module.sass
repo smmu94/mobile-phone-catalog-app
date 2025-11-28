@@ -1,0 +1,28 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+  display: flex
+  justify-content: center
+  align-items: center      
+  height: 50vh
+
+  .success
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: spacing.$spacing-m
+    border-radius: spacing.$spacing-s * 0.5
+    padding: spacing.$spacing-xl
+    text-align: center
+    border: 2px solid map-get(colors.$colors, "gray")
+    background-color: map-get(colors.$colors, "light")
+
+    .orderId
+      font-size: typography.$font-size-m
+      margin-bottom: spacing.$spacing-s
+      strong
+        color: map-get(colors.$colors, "default")
+

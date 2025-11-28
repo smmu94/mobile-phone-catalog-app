@@ -1,0 +1,25 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    width: 100%
+    min-width: spacing.$spacing-l * 9
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: spacing.$spacing-m
+    padding: spacing.$spacing-m
+    border: map-get(colors.$colors, "light") solid 1px
+    border-radius: spacing.$spacing-s
+    background-color: map-get(colors.$colors, "default")
+    
+    .icon
+        background-color: map-get(colors.$colors, "dark")
+        border: map-get(colors.$colors, "light") solid 1px
+        border-radius: 50%
+        padding: spacing.$spacing-s
+
+    p
+        color: map-get(colors.$colors, "light")
+        text-align: center

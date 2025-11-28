@@ -76,7 +76,7 @@ describe("ListView - Cards", () => {
       isError: false,
     });
     render(<Component />);
-    expect(screen.getByText(messages.loading)).toBeInTheDocument();
+    expect(screen.getByTestId("spinner")).toBeInTheDocument();
   });
   it("Cards: render error state", () => {
     (useQuery as jest.Mock).mockReturnValue({

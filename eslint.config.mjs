@@ -25,7 +25,6 @@ export default [
       "no-unused-vars": "error",
       "no-extra-semi": "error",
       eqeqeq: ["error", "always"],
-      camelcase: "error",
       curly: ["error", "all"],
       "space-infix-ops": "error",
       "space-before-blocks": "error",

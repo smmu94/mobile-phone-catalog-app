@@ -1,11 +1,10 @@
-import React from "react";
-import { CartItemProps } from "./types";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render, screen } from "@testing-library/react";
-import CartItem from ".";
-import { mockProduct } from "@utils/tests/mockProduct";
 import userEvent from "@testing-library/user-event";
+import { mockProduct } from "@utils/tests/mockProduct";
+import CartItem from ".";
+import { CartItemProps } from "./types";
 
 const mockSetSelectedProducts = jest.fn((callback) => {
   callback([{ ...mockProduct, id: "123" }]);
@@ -44,14 +43,14 @@ describe("CartView - CartItem", () => {
     expect(
       screen.getByText(`${mockProduct.storage.price} EUR`)
     ).toBeInTheDocument();
-    expect(screen.getByText("Eliminar")).toBeInTheDocument();
+    expect(screen.getByText("Delete")).toBeInTheDocument();
   });
-  it("should delete product when 'Eliminar' button is clicked", () => {
+  it("should delete product when 'Delete' button is clicked", () => {
     render(<Component product={{ ...mockProduct, id: "123" }} />);
     expect(
       screen.getByText(mockProduct.name.toUpperCase())
     ).toBeInTheDocument();
-    const button = screen.getByText("Eliminar");
+    const button = screen.getByText("Delete");
     userEvent.click(button);
     expect(mockSetSelectedProducts).toHaveBeenCalledTimes(1);
     expect(mockSetSelectedProducts).toHaveBeenCalledWith(expect.any(Function));

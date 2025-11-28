@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /** @type {import('next').NextConfig} */
 const path = require('path');
 
@@ -6,7 +5,15 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["prueba-tecnica-api-tienda-moviles.onrender.com"]
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'prueba-tecnica-api-tienda-moviles.onrender.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 
   webpack(config, { isServer }) {

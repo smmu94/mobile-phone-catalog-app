@@ -13,4 +13,5 @@ export const mockProduct: SelectedProduct = {
     capacity: faker.random.numeric(),
     price: +faker.commerce.price(),
   },
+  quantity: +faker.random.numeric(),
 };  

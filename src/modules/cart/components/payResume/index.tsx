@@ -36,15 +36,14 @@ export default function PayResume() {
   const handlePay = async () => {
     const res = await fetch("/api/checkout", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ products: selectedProducts }),
     });
 
     if (!res.ok) {
       const text = await res.text();
       console.error("Checkout error:", text);
+      alert("Error en el checkout, revisa la consola");
       return;
     }
 

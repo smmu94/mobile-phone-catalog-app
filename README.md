@@ -1,6 +1,10 @@
 # Mobile Phone Catalog Web Application
 
+![Home Screenshot](./public/assets/home-screenshot.png)
+
 ## Demo
+
+Check the live demo: [https://mobile-catalog-app.vercel.app/](https://mobile-catalog-app.vercel.app/)
 
 ### Mobile
 ![Mobile Demo](./public/assets/mobile.gif)
@@ -19,6 +23,7 @@ This project is a web application focused on visualizing, searching, and managin
 - **Phone List View**: Displays a grid of phone cards showing the image, name, brand, and base price of each phone. Users can filter the phones by name or brand using a real-time search bar.
 - **Phone Detail View**: Shows detailed information for each selected phone, including dynamic image selection, color, storage options, price updates, and technical specifications. Users can add the phone to the cart.
 - **Shopping Cart View**: Displays the phones added to the cart with their image, name, specifications, and price. Users can remove items from the cart and view the total cost.
+- **Checkout Integration**: Secure Stripe checkout flow that creates a payment session for the selected products and redirects users to the payment page.
 
 ## Tech Stack
 

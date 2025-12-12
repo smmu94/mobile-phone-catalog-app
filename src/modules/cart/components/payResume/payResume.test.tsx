@@ -1,6 +1,6 @@
+import React from "react";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
 import { mockProduct } from "@utils/tests/mockProduct";
 import { render, screen } from "@testing-library/react";
 import PayResume from ".";

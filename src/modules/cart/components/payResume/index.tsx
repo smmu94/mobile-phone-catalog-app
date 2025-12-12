@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import styles from "./payResume.module.sass";
-import { SelectedProductsContext } from "@contexts/selectedProductsContext";
+import React from "react";
 import Button from "@components/button";
-import { useRouter } from "next/router";
+import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 import routes from "@utils/routes";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
+import styles from "./payResume.module.sass";
 
 export default function PayResume() {
   const router = useRouter();
@@ -40,7 +41,13 @@ export default function PayResume() {
       },
       body: JSON.stringify({ products: selectedProducts }),
     });
-    
+
+    if (!res.ok) {
+      const text = await res.text();
+      console.error("Checkout error:", text);
+      return;
+    }
+
     const session = await res.json();
     router.push(session.url);
   };
@@ -66,7 +73,11 @@ export default function PayResume() {
   );
 
   return (
-    <section className={styles.wrapper} data-testid="payResume" aria-label="pay-resume">
+    <section
+      className={styles.wrapper}
+      data-testid="payResume"
+      aria-label="pay-resume"
+    >
       {isMobile ? (
         <>
           {!!selectedProducts.length && renderTotal()}
@@ -75,7 +86,11 @@ export default function PayResume() {
       ) : (
         <>
           <div className={styles.continue}>
-            <Button onClick={goToListView} style="Standard" ariaLabel="continue-shopping">
+            <Button
+              onClick={goToListView}
+              style="Standard"
+              ariaLabel="continue-shopping"
+            >
               CONTINUE SHOPPING
             </Button>
           </div>
